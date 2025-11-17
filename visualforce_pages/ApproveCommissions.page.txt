@@ -1,0 +1,44 @@
+<apex:page controller="ApproveCommissionsController" showHeader="true" sidebar="false">
+    <apex:form >
+        <apex:pageMessages id="messages"/>
+        <apex:pageBlock title="Approve Commissions - Sales Region" mode="edit">
+            <apex:pageBlockSection columns="2">
+                <apex:outputLabel value="Sales Region Id:" />
+                <apex:outputText value="{!salesRegionId}" />
+                <apex:outputLabel value="Selected Properties:" />
+                <apex:outputText value="{!selectedCount}" />
+                <apex:outputLabel value="" />
+                <apex:outputText value="{!pageInfo}" />
+            </apex:pageBlockSection>
+
+            <apex:pageBlockTable value="{!pageRecords}" var="w" id="propTable">
+                <apex:column headerValue="Select">
+                    <apex:inputCheckbox value="{!w.selected}">
+                        <apex:actionSupport event="onclick" action="{!syncSelections}" reRender="propTable,messages"/>
+                    </apex:inputCheckbox>
+                </apex:column>
+                <apex:column value="{!w.record.Name}" headerValue="Property" />
+                <apex:column value="{!w.record.Sales_Office__c}" headerValue="Sales Office" />
+                <apex:column value="{!w.record.Agent__c}" headerValue="Agent" />
+                <apex:column value="{!w.record.Sales_Price__c}" headerValue="Sales Price" />
+                <apex:column value="{!w.record.Agent_Commission_Percentage__c}" headerValue="Agent %"/>
+                <apex:column value="{!w.record.Agent_Commission_Amount__c}" headerValue="Agent Commission Amount"/>
+                <apex:column value="{!w.record.Sale_Date__c}" headerValue="Sale Date" />
+            </apex:pageBlockTable>
+
+            <apex:pageBlockButtons location="bottom">
+                <apex:commandButton value="First" action="{!firstPage}" reRender="propTable"/>
+                <apex:commandButton value="Previous" action="{!prevPage}" reRender="propTable"/>
+                <apex:outputText value="{!pageInfo}" />
+                <apex:commandButton value="Next" action="{!nextPage}" reRender="propTable"/>
+                <apex:commandButton value="Last" action="{!lastPage}" reRender="propTable"/>
+            </apex:pageBlockButtons>
+
+            <apex:pageBlockButtons location="bottom">
+                <apex:commandButton value="Approve Selected" action="{!approveSelected}" reRender="propTable,messages"/>
+                <apex:commandButton value="Reject Selected" action="{!rejectSelected}" reRender="propTable,messages"/>
+                <apex:commandButton value="Cancel" action="{!cancel}" immediate="true"/>
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>
