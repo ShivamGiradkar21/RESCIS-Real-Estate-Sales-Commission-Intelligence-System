@@ -19,7 +19,7 @@ Built with Apex, Visualforce, SOQL, custom objects, and Lightning Dashboards —
   - Commission calculation  
   - YTD Sales update  
   - YTD Commission update  
-- Record-level locking using **FOR UPDATE**
+
 
 ###  Analytics Suite (Reports + Dashboards)
 - Commission summary grouped by agent
