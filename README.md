@@ -21,7 +21,7 @@ Built with Apex, Visualforce, SOQL, custom objects, and Lightning Dashboards —
   - YTD Commission update  
 - Record-level locking using **FOR UPDATE**
 
-### 📊 Analytics Suite (Reports + Dashboards)
+###  Analytics Suite (Reports + Dashboards)
 - Commission summary grouped by agent
 - Full Sales breakdown by:
   - Region  
@@ -129,7 +129,7 @@ Automated or manually set.
 
 ---
 
-## ✔️ Outcome
+##  Outcome
 
 RESCIS demonstrates skills in:
 
